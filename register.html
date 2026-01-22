@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Register - Builderz Construction</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Construction Company Registration" name="keywords">
+        <meta content="Construction Company Register Page" name="description">
+
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet"> 
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+        
+        <style>
+            .brand-header {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                z-index: 1000;
+            }
+            
+            .brand-link {
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                transition: all 0.3s ease;
+            }
+            
+            .brand-link h1 {
+                color: #C9A227;
+                font-size: 28px;
+                font-weight: 700;
+                margin: 0;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+                transition: all 0.3s ease;
+            }
+            
+            .brand-link:hover h1 {
+                color: #2F3E46;
+                transform: scale(1.05);
+            }
+            
+            .register-page {
+                min-height: 100vh;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            }
+            
+            .register-container {
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+                overflow: hidden;
+                max-width: 1200px;
+                width: 100%;
+                display: flex;
+                min-height: 600px;
+            }
+            
+            .register-info {
+                background: #030f27;
+                color: white;
+                padding: 60px 40px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .register-info::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: url('img/carousel-2.jpg') center/cover;
+                opacity: 0.2;
+                z-index: 0;
+            }
+            
+            .register-info-content {
+                position: relative;
+                z-index: 1;
+            }
+            
+            .register-form {
+                flex: 1.5;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                max-height: 600px;
+                overflow-y: auto;
+            }
+            
+            .register-form h2 {
+                color: #030f27;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+            
+            .register-form p {
+                color: #666;
+                margin-bottom: 30px;
+            }
+            
+            .form-row {
+                display: flex;
+                gap: 15px;
+            }
+            
+            .form-group {
+                margin-bottom: 20px;
+                position: relative;
+            }
+            
+            .form-group label {
+                color: #666;
+                margin-bottom: 5px;
+                font-weight: 500;
+                font-size: 14px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                width: 100%;
+                padding: 10px 15px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 14px;
+                transition: all 0.3s;
+            }
+            
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                border-color: #fdbe33;
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(253, 190, 51, 0.1);
+            }
+            
+            .form-group .input-icon {
+                position: absolute;
+                right: 15px;
+                top: 35px;
+                color: #999;
+                font-size: 14px;
+            }
+            
+            .form-group textarea {
+                resize: vertical;
+                min-height: 80px;
+            }
+            
+            .password-strength {
+                margin-top: 5px;
+                font-size: 12px;
+            }
+            
+            .strength-weak {
+                color: #dc3545;
+            }
+            
+            .strength-medium {
+                color: #ffc107;
+            }
+            
+            .strength-strong {
+                color: #28a745;
+            }
+            
+            .terms-privacy {
+                margin-bottom: 20px;
+            }
+            
+            .terms-privacy .form-check {
+                margin-bottom: 0;
+            }
+            
+            .terms-privacy .form-check-label {
+                font-size: 13px;
+                color: #666;
+            }
+            
+            .terms-privacy a {
+                color: #fdbe33;
+                text-decoration: none;
+            }
+            
+            .terms-privacy a:hover {
+                text-decoration: underline;
+            }
+            
+            .btn-register {
+                background: #fdbe33;
+                color: #030f27;
+                border: none;
+                padding: 12px 30px;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.3s;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .btn-register:hover {
+                background: #030f27;
+                color: #fdbe33;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            
+            .login-link {
+                text-align: center;
+                color: #666;
+                font-size: 14px;
+            }
+            
+            .login-link a {
+                color: #fdbe33;
+                text-decoration: none;
+                font-weight: 600;
+            }
+            
+            .login-link a:hover {
+                text-decoration: underline;
+            }
+            
+            .social-register {
+                margin-top: 20px;
+                text-align: center;
+            }
+            
+            .social-register p {
+                color: #999;
+                margin-bottom: 15px;
+                font-size: 14px;
+            }
+            
+            .social-buttons {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+            }
+            
+            .social-btn {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+            
+            .social-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+            
+            .social-btn.facebook {
+                background: #3b5998;
+            }
+            
+            .social-btn.google {
+                background: #db4437;
+            }
+            
+            .social-btn.twitter {
+                background: #1da1f2;
+            }
+            
+            .benefits-list {
+                margin-top: 30px;
+            }
+            
+            .benefit-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+            
+            .benefit-item i {
+                margin-right: 15px;
+                color: #fdbe33;
+                font-size: 18px;
+            }
+            
+            @media (max-width: 992px) {
+                .register-container {
+                    flex-direction: column;
+                    max-width: 500px;
+                }
+                
+                .register-info {
+                    padding: 40px 30px;
+                }
+                
+                .register-form {
+                    padding: 40px 30px;
+                }
+                
+                .form-row {
+                    flex-direction: column;
+                    gap: 0;
+                }
+            </style>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- Brand Header -->
+            <div class="brand-header">
+                <a href="index.html" class="brand-link">
+                    <h1>Builderz</h1>
+                </a>
+            </div>
+            <!-- Register Page Start -->
+            <div class="register-page">
+                <div class="register-container wow fadeInUp">
+                    <div class="register-info">
+                        <div class="register-info-content">
+                            <h2>Join Builderz Today!</h2>
+                            <p>Create your account and start your construction journey with our expert team and premium services.</p>
+                            
+                            <div class="benefits-list">
+                                <div class="benefit-item">
+                                    <i class="fas fa-hard-hat"></i>
+                                    <span>Access to expert construction professionals</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>Track multiple projects simultaneously</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Real-time progress monitoring</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Secure project documentation</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-headset"></i>
+                                    <span>24/7 customer support</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-gift"></i>
+                                    <span>Exclusive member benefits</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="register-form">
+                        <h2>Create Your Account</h2>
+                        <p>Fill in the details below to get started with your construction journey</p>
+                        
+                        <form id="registerForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" required placeholder="John">
+                                    <i class="fas fa-user input-icon"></i>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                                    <i class="fas fa-user input-icon"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+                                <i class="fas fa-envelope input-icon"></i>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8900">
+                                <i class="fas fa-phone input-icon"></i>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company Name (Optional)</label>
+                                <input type="text" id="company" name="company" placeholder="Your Company Ltd.">
+                                <i class="fas fa-building input-icon"></i>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="userType">Account Type</label>
+                                <select id="userType" name="userType" required>
+                                    <option value="">Select Account Type</option>
+                                    <option value="homeowner">Homeowner</option>
+                                    <option value="contractor">Contractor</option>
+                                    <option value="developer">Property Developer</option>
+                                    <option value="architect">Architect</option>
+                                    <option value="business">Business</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" required placeholder="Enter password">
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <div class="password-strength" id="passwordStrength"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm Password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm password">
+                                    <i class="fas fa-lock input-icon"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Project Address</label>
+                                <textarea id="address" name="address" placeholder="Enter your project or home address"></textarea>
+                            </div>
+                            
+                            <div class="terms-privacy">
+                                <div class="form-check">
+                                    <input type="checkbox" id="terms" class="form-check-input" required>
+                                    <label for="terms" class="form-check-label">
+                                        I agree to <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn-register">Create Account</button>
+                        </form>
+                        
+                        <div class="login-link">
+                            Already have an account? <a href="login.html">Login here</a>
+                        </div>
+                        
+                        <div class="social-register">
+                            <p>Or register with</p>
+                            <div class="social-buttons">
+                                <a href="#" class="social-btn facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-btn google">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                                <a href="#" class="social-btn twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Register Page End -->
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+        
+        <script>
+            // Initialize WOW.js
+            new WOW().init();
+            
+            // Password strength checker
+            document.getElementById('password').addEventListener('input', function() {
+                const password = this.value;
+                const strengthElement = document.getElementById('passwordStrength');
+                
+                let strength = 0;
+                
+                if (password.length >= 8) strength++;
+                if (password.match(/[a-z]+/)) strength++;
+                if (password.match(/[A-Z]+/)) strength++;
+                if (password.match(/[0-9]+/)) strength++;
+                if (password.match(/[$@#&!]+/)) strength++;
+                
+                if (strength < 3) {
+                    strengthElement.textContent = 'Weak password';
+                    strengthElement.className = 'password-strength strength-weak';
+                } else if (strength < 4) {
+                    strengthElement.textContent = 'Medium password';
+                    strengthElement.className = 'password-strength strength-medium';
+                } else {
+                    strengthElement.textContent = 'Strong password';
+                    strengthElement.className = 'password-strength strength-strong';
+                }
+            });
+            
+            // Form validation
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Basic validation
+                if (!data.firstName || !data.lastName || !data.email || !data.phone || !data.password || !data.confirmPassword) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+                // Phone validation
+                const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+                if (!phoneRegex.test(data.phone)) {
+                    alert('Please enter a valid phone number');
+                    return;
+                }
+                
+                // Password confirmation
+                if (data.password !== data.confirmPassword) {
+                    alert('Passwords do not match');
+                    return;
+                }
+                
+                // Password strength
+                if (data.password.length < 8) {
+                    alert('Password must be at least 8 characters long');
+                    return;
+                }
+                
+                // Terms acceptance
+                if (!document.getElementById('terms').checked) {
+                    alert('Please accept terms and conditions');
+                    return;
+                }
+                
+                // Simulate registration (replace with actual registration)
+                alert('Registration successful! Redirecting to login page...');
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 2000);
+            });
+        </script>
+    </body>
+</html>
