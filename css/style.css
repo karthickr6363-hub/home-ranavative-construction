@@ -224,7 +224,21 @@ a:focus {
     }
     
     .nav-bar .navbar-brand {
-        display: none;
+        display: block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 28px;
+        font-weight: 800;
+        color: #fdbe33 !important;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-bar .navbar-brand:hover {
+        color: #ffffff !important;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        transform: scale(1.05);
     }
     
     .nav-bar a.nav-link {
@@ -239,6 +253,22 @@ a:focus {
         padding: 15px;
     }
     
+    .nav-bar .navbar-brand {
+        font-family: 'Poppins', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #fdbe33 !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-bar .navbar-brand:hover {
+        color: #ffffff !important;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    }
+    
     .nav-bar a.nav-link {
         padding: 5px;
     }
@@ -249,6 +279,67 @@ a:focus {
     
     .nav-bar .btn {
         display: none;
+    }
+    
+    .navbar-collapse.show .nav-bar .btn {
+        display: block !important;
+        width: 100%;
+        margin: 10px 20px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+    .navbar-toggler {
+        display: block !important;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .navbar-collapse {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #2F3E46;
+        z-index: 1000;
+    }
+    
+    .navbar-collapse.show {
+        display: block !important;
+    }
+    
+    .navbar-nav.mr-auto {
+        display: none !important;
+    }
+    
+    .navbar-collapse.show .navbar-nav.mr-auto {
+        display: block !important;
+        width: 100%;
+    }
+    
+    .navbar-collapse.show .navbar-nav .nav-link {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .ml-auto {
+        display: none !important;
+    }
+    
+    .navbar-collapse.show .ml-auto {
+        display: block !important;
+        width: 100%;
+    }
+    
+    .navbar-collapse.show .ml-auto .btn {
+        display: block !important;
+        width: 100%;
+        margin: 10px 20px;
+        text-align: center;
     }
 }
 
