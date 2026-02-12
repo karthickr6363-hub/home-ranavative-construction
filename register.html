@@ -1,513 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Register - Crazy Buildz Construction</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Register - Crazy Buildz Construction Company" name="keywords">
-        <meta content="Create your Crazy Buildz Construction account" name="description">
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+<head>
+    <meta charset="utf-8">
+    <title>Register - Your Wish Construction</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Register - Your Wish Construction Company" name="keywords">
+    <meta content="Create your Your Wish Construction account" name="description">
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="img/favicon.svg" rel="icon">
 
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-        
-        <style>
-            .register-page {
-                min-height: 100vh;
-                background: linear-gradient(135deg, #2F3E46 0%, #1a252f 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px;
-            }
-            
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .register-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2F3E46 0%, #1a252f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .register-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-width: 550px;
+            width: 100%;
+            padding: 40px;
+            max-height: 95vh;
+            overflow-y: auto;
+        }
+
+        .brand-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-logo h1 {
+            color: #C9A227;
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .brand-logo p {
+            color: #2F3E46;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .register-form h2 {
+            color: #2F3E46;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .register-form p {
+            color: #666;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            color: #2F3E46;
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #C9A227;
+            box-shadow: 0 0 0 0.2rem rgba(201, 162, 39, 0.25);
+        }
+
+        .input-group-text {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-right: none;
+            color: #2F3E46;
+        }
+
+        .btn-register {
+            background: #C9A227;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-register:hover {
+            background: #b89120;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e9ecef;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            color: #666;
+            position: relative;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            background: white;
+            border-radius: 5px;
+            color: #666;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .login-link a {
+            color: #C9A227;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .terms-text {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .terms-text a {
+            color: #C9A227;
+            text-decoration: none;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        .password-strength {
+            height: 5px;
+            border-radius: 3px;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .strength-weak {
+            background: #dc3545;
+            width: 33%;
+        }
+
+        .strength-medium {
+            background: #ffc107;
+            width: 66%;
+        }
+
+        .strength-strong {
+            background: #28a745;
+            width: 100%;
+        }
+
+        @media (max-width: 576px) {
             .register-container {
-                background: rgba(255, 255, 255, 0.95);
-                border-radius: 10px;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-                overflow: hidden;
-                max-width: 1000px;
-                width: 100%;
-                display: flex;
-                min-height: 600px;
+                padding: 30px 20px;
             }
-            
-            .register-image {
-                flex: 1;
-                background: url('img/service-1.jpg') center/cover;
-                position: relative;
-                display: none;
-            }
-            
-            .register-image::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(47, 62, 70, 0.8);
-            }
-            
-            .register-image-content {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-                color: white;
-                z-index: 1;
-                padding: 20px;
-            }
-            
-            .register-image-content h2 {
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 15px;
-                color: #C9A227;
-            }
-            
-            .register-image-content p {
-                font-size: 1.1rem;
-                opacity: 0.9;
-                line-height: 1.6;
-            }
-            
-            .register-form {
-                flex: 1.2;
-                padding: 40px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                max-height: 90vh;
-                overflow-y: auto;
-            }
-            
-            .register-form h2 {
-                color: #2F3E46;
-                font-weight: 700;
-                margin-bottom: 10px;
+
+            .brand-logo h1 {
                 font-size: 2rem;
             }
-            
-            .register-form p {
-                color: #666;
-                margin-bottom: 25px;
+
+            .register-form h2 {
+                font-size: 1.5rem;
             }
-            
+
             .form-row {
-                display: flex;
-                gap: 15px;
+                flex-direction: column;
+                gap: 0;
             }
-            
-            .form-row .form-group {
-                flex: 1;
-            }
-            
-            .form-group {
-                margin-bottom: 15px;
-            }
-            
-            .form-group label {
-                color: #2F3E46;
-                font-weight: 500;
-                margin-bottom: 5px;
-                font-size: 0.9rem;
-            }
-            
-            .form-control {
-                border: 2px solid #e9ecef;
-                border-radius: 5px;
-                padding: 10px 15px;
-                font-size: 0.95rem;
-                transition: all 0.3s ease;
-            }
-            
-            .form-control:focus {
-                border-color: #C9A227;
-                box-shadow: 0 0 0 0.2rem rgba(201, 162, 39, 0.25);
-            }
-            
-            .input-group-text {
-                background: #f8f9fa;
-                border: 2px solid #e9ecef;
-                border-right: none;
-                color: #2F3E46;
-            }
-            
-            .btn-register {
-                background: #C9A227;
-                color: white;
-                border: none;
-                padding: 12px 30px;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                border-radius: 5px;
-                width: 100%;
-                transition: all 0.3s ease;
-                margin-top: 10px;
-            }
-            
-            .btn-register:hover {
-                background: #b89120;
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
-            }
-            
-            .divider {
-                text-align: center;
-                margin: 20px 0;
-                position: relative;
-            }
-            
-            .divider::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 0;
-                right: 0;
-                height: 1px;
-                background: #e9ecef;
-            }
-            
-            .divider span {
-                background: white;
-                padding: 0 15px;
-                color: #666;
-                position: relative;
-            }
-            
-            .social-login {
-                display: flex;
-                gap: 10px;
-            }
-            
-            .social-btn {
-                flex: 1;
-                padding: 10px;
-                border: 2px solid #e9ecef;
-                background: white;
-                border-radius: 5px;
-                color: #666;
-                transition: all 0.3s ease;
-                font-size: 0.9rem;
-            }
-            
-            .social-btn:hover {
-                background: #f8f9fa;
-                transform: translateY(-2px);
-            }
-            
-            .login-link {
-                text-align: center;
-                margin-top: 20px;
-                color: #666;
-                font-size: 0.9rem;
-            }
-            
-            .login-link a {
-                color: #C9A227;
-                text-decoration: none;
-                font-weight: 600;
-            }
-            
-            .login-link a:hover {
-                text-decoration: underline;
-            }
-            
-            .terms-text {
-                font-size: 0.85rem;
-                color: #666;
-                margin-top: 15px;
-                text-align: center;
-            }
-            
-            .terms-text a {
-                color: #C9A227;
-                text-decoration: none;
-            }
-            
-            .terms-text a:hover {
-                text-decoration: underline;
-            }
-            
-            .password-strength {
-                height: 5px;
-                border-radius: 3px;
-                margin-top: 5px;
-                transition: all 0.3s ease;
-            }
-            
-            .strength-weak {
-                background: #dc3545;
-                width: 33%;
-            }
-            
-            .strength-medium {
-                background: #ffc107;
-                width: 66%;
-            }
-            
-            .strength-strong {
-                background: #28a745;
-                width: 100%;
-            }
-            
-            @media (min-width: 768px) {
-                .register-image {
-                    display: block;
-                }
-            }
-            
-            @media (max-width: 767px) {
-                .register-container {
-                    margin: 10px;
-                }
-                
-                .register-form {
-                    padding: 30px 20px;
-                }
-                
-                .register-form h2 {
-                    font-size: 1.5rem;
-                }
-                
-                .form-row {
-                    flex-direction: column;
-                    gap: 0;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Nav Bar Start -->
-        <div class="nav-bar">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="index.html" class="navbar-brand">Crazy Buildz</a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Register Page Start -->
+    <div class="register-page">
+        <div class="register-container wow fadeInUp">
+            <div class="brand-logo">
+                <h1>Your Wish</h1>
+                <p>CONSTRUCTION COMPANY</p>
+            </div>
+            <div class="register-form">
+                <h2>Create Account</h2>
+                <p>Join us to get started with your projects</p>
+
+                <form id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="firstName" placeholder="First name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            </div>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name (Optional)</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-building"></i></span>
+                            </div>
+                            <input type="text" class="form-control" id="company" placeholder="Company name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control" id="password" placeholder="Create a password"
+                                required>
+                        </div>
+                        <div class="password-strength" id="passwordStrength"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirm password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="agreeTerms" required>
+                            <label class="custom-control-label" for="agreeTerms">
+                                I agree to the <a href="#">Terms</a> and <a href="#">Privacy</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-register">Create Account</button>
+                </form>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="btn social-btn">
+                        <i class="fab fa-google"></i> Google
                     </button>
-
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="service.html" class="nav-item nav-link">Service</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
-                        <div class="ml-auto">
-                            <a class="btn" href="login.html">Login</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Nav Bar End -->
-
-        <!-- Register Page Start -->
-        <div class="register-page">
-            <div class="register-container wow fadeInUp">
-                <div class="register-image">
-                    <div class="register-image-content">
-                        <h2>Join Crazy Buildz</h2>
-                        <p>Create your account to start managing your construction projects, track progress, and connect with our expert team.</p>
-                    </div>
+                    <button class="btn social-btn">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </button>
                 </div>
-                <div class="register-form">
-                    <h2>Create Account</h2>
-                    <p>Join us to get started with your construction projects</p>
-                    
-                    <form id="registerForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" id="firstName" placeholder="First name" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    </div>
-                                    <input type="text" class="form-control" id="lastName" placeholder="Last name" required>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                </div>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                </div>
-                                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company Name (Optional)</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-building"></i></span>
-                                </div>
-                                <input type="text" class="form-control" id="company" placeholder="Company name">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                </div>
-                                <input type="password" class="form-control" id="password" placeholder="Create a password" required>
-                            </div>
-                            <div class="password-strength" id="passwordStrength"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                </div>
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="agreeTerms" required>
-                                <label class="custom-control-label" for="agreeTerms">
-                                    I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-register">Create Account</button>
-                    </form>
-                    
-                    <div class="divider">
-                        <span>OR</span>
-                    </div>
-                    
-                    <div class="social-login">
-                        <button class="btn social-btn">
-                            <i class="fab fa-google"></i> Google
-                        </button>
-                        <button class="btn social-btn">
-                            <i class="fab fa-facebook-f"></i> Facebook
-                        </button>
-                    </div>
-                    
-                    <div class="login-link">
-                        Already have an account? <a href="login.html">Login here</a>
-                    </div>
-                    
-                    <div class="terms-text">
-                        By creating an account, you agree to receive updates and offers from Crazy Buildz Construction.
-                    </div>
+
+                <div class="login-link">
+                    Already have an account? <a href="login.html">Login</a>
+                </div>
+
+                <div class="terms-text">
+                    By creating an account, you agree to receive updates from Your Wish Construction.
                 </div>
             </div>
         </div>
-        <!-- Register Page End -->
+    </div>
+    <!-- Register Page End -->
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        
-        <script>
-            // Initialize WOW.js
-            new WOW().init();
-            
-            // Password strength checker
-            document.getElementById('password').addEventListener('input', function() {
-                const password = this.value;
-                const strengthIndicator = document.getElementById('passwordStrength');
-                
-                if (password.length === 0) {
-                    strengthIndicator.className = 'password-strength';
-                    return;
-                }
-                
-                let strength = 0;
-                if (password.length >= 8) strength++;
-                if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
-                if (password.match(/[0-9]/)) strength++;
-                if (password.match(/[^a-zA-Z0-9]/)) strength++;
-                
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+
+    <script>
+        // Initialize WOW.js
+        new WOW().init();
+
+        // Password strength checker
+        document.getElementById('password').addEventListener('input', function () {
+            const password = this.value;
+            const strengthIndicator = document.getElementById('passwordStrength');
+
+            if (password.length === 0) {
                 strengthIndicator.className = 'password-strength';
-                
-                if (strength <= 2) {
-                    strengthIndicator.classList.add('strength-weak');
-                } else if (strength === 3) {
-                    strengthIndicator.classList.add('strength-medium');
-                } else {
-                    strengthIndicator.classList.add('strength-strong');
-                }
-            });
-            
-            // Handle registration form submission
-            document.getElementById('registerForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const firstName = document.getElementById('firstName').value;
-                const lastName = document.getElementById('lastName').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-                const password = document.getElementById('password').value;
-                const confirmPassword = document.getElementById('confirmPassword').value;
-                const agreeTerms = document.getElementById('agreeTerms').checked;
-                
-                // Validation
-                if (password !== confirmPassword) {
-                    alert('Passwords do not match!');
-                    return;
-                }
-                
-                if (password.length < 8) {
-                    alert('Password must be at least 8 characters long!');
-                    return;
-                }
-                
-                if (!agreeTerms) {
-                    alert('Please agree to the terms and conditions!');
-                    return;
-                }
-                
-                // Show success message
-                alert('Registration successful! Please check your email to verify your account.');
-                // Redirect to login page
-                window.location.href = 'login.html';
-            });
-        </script>
-    </body>
+                return;
+            }
+
+            let strength = 0;
+            if (password.length >= 8) strength++;
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+            if (password.match(/[0-9]/)) strength++;
+            if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+            strengthIndicator.className = 'password-strength';
+
+            if (strength <= 2) {
+                strengthIndicator.classList.add('strength-weak');
+            } else if (strength === 3) {
+                strengthIndicator.classList.add('strength-medium');
+            } else {
+                strengthIndicator.classList.add('strength-strong');
+            }
+        });
+
+        // Handle registration form submission
+        document.getElementById('registerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+
+            // Validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long!');
+                return;
+            }
+
+            if (!agreeTerms) {
+                alert('Please agree to the terms and conditions!');
+                return;
+            }
+
+            // Show success message
+            alert('Registration successful! Please check your email to verify your account.');
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+
 </html>

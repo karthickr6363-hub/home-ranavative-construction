@@ -1,356 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Login - Crazy Buildz Construction</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Login - Crazy Buildz Construction Company" name="keywords">
-        <meta content="Login to your Crazy Buildz Construction account" name="description">
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+<head>
+    <meta charset="utf-8">
+    <title>Login - Your Wish Construction</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Login - Your Wish Construction Company" name="keywords">
+    <meta content="Login to your Your Wish Construction account" name="description">
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="img/favicon.svg" rel="icon">
 
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-        
-        <style>
-            .login-page {
-                min-height: 100vh;
-                background: linear-gradient(135deg, #2F3E46 0%, #1a252f 100%);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px;
-            }
-            
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .login-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2F3E46 0%, #1a252f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            max-width: 450px;
+            width: 100%;
+            padding: 40px;
+        }
+
+        .brand-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .brand-logo h1 {
+            color: #C9A227;
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .brand-logo p {
+            color: #2F3E46;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .login-form h2 {
+            color: #2F3E46;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .login-form p {
+            color: #666;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            color: #2F3E46;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            padding: 12px 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #C9A227;
+            box-shadow: 0 0 0 0.2rem rgba(201, 162, 39, 0.25);
+        }
+
+        .input-group-text {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-right: none;
+            color: #2F3E46;
+        }
+
+        .btn-login {
+            background: #C9A227;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: #b89120;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e9ecef;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            color: #666;
+            position: relative;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            background: white;
+            border-radius: 5px;
+            color: #666;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .register-link a {
+            color: #C9A227;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 576px) {
             .login-container {
-                background: rgba(255, 255, 255, 0.95);
-                border-radius: 10px;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-                overflow: hidden;
-                max-width: 900px;
-                width: 100%;
-                display: flex;
-                min-height: 500px;
+                padding: 30px 20px;
             }
-            
-            .login-image {
-                flex: 1;
-                background: url('img/about.jpg') center/cover;
-                position: relative;
-                display: none;
-            }
-            
-            .login-image::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: rgba(47, 62, 70, 0.8);
-            }
-            
-            .login-image-content {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-                color: white;
-                z-index: 1;
-            }
-            
-            .login-image-content h2 {
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 15px;
-                color: #C9A227;
-            }
-            
-            .login-image-content p {
-                font-size: 1.1rem;
-                opacity: 0.9;
-            }
-            
-            .login-form {
-                flex: 1;
-                padding: 40px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            
-            .login-form h2 {
-                color: #2F3E46;
-                font-weight: 700;
-                margin-bottom: 10px;
+
+            .brand-logo h1 {
                 font-size: 2rem;
             }
-            
-            .login-form p {
-                color: #666;
-                margin-bottom: 30px;
+
+            .login-form h2 {
+                font-size: 1.5rem;
             }
-            
-            .form-group {
-                margin-bottom: 20px;
-            }
-            
-            .form-group label {
-                color: #2F3E46;
-                font-weight: 500;
-                margin-bottom: 8px;
-            }
-            
-            .form-control {
-                border: 2px solid #e9ecef;
-                border-radius: 5px;
-                padding: 12px 15px;
-                font-size: 1rem;
-                transition: all 0.3s ease;
-            }
-            
-            .form-control:focus {
-                border-color: #C9A227;
-                box-shadow: 0 0 0 0.2rem rgba(201, 162, 39, 0.25);
-            }
-            
-            .input-group-text {
-                background: #f8f9fa;
-                border: 2px solid #e9ecef;
-                border-right: none;
-                color: #2F3E46;
-            }
-            
-            .btn-login {
-                background: #C9A227;
-                color: white;
-                border: none;
-                padding: 12px 30px;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                border-radius: 5px;
-                width: 100%;
-                transition: all 0.3s ease;
-            }
-            
-            .btn-login:hover {
-                background: #b89120;
-                transform: translateY(-2px);
-                box-shadow: 0 5px 15px rgba(201, 162, 39, 0.3);
-            }
-            
-            .divider {
-                text-align: center;
-                margin: 25px 0;
-                position: relative;
-            }
-            
-            .divider::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 0;
-                right: 0;
-                height: 1px;
-                background: #e9ecef;
-            }
-            
-            .divider span {
-                background: white;
-                padding: 0 15px;
-                color: #666;
-                position: relative;
-            }
-            
-            .social-login {
-                display: flex;
-                gap: 10px;
-            }
-            
-            .social-btn {
-                flex: 1;
-                padding: 10px;
-                border: 2px solid #e9ecef;
-                background: white;
-                border-radius: 5px;
-                color: #666;
-                transition: all 0.3s ease;
-            }
-            
-            .social-btn:hover {
-                background: #f8f9fa;
-                transform: translateY(-2px);
-            }
-            
-            .register-link {
-                text-align: center;
-                margin-top: 20px;
-                color: #666;
-            }
-            
-            .register-link a {
-                color: #C9A227;
-                text-decoration: none;
-                font-weight: 600;
-            }
-            
-            .register-link a:hover {
-                text-decoration: underline;
-            }
-            
-            @media (min-width: 768px) {
-                .login-image {
-                    display: block;
-                }
-            }
-            
-            @media (max-width: 767px) {
-                .login-container {
-                    margin: 10px;
-                }
-                
-                .login-form {
-                    padding: 30px 20px;
-                }
-                
-                .login-form h2 {
-                    font-size: 1.5rem;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <!-- Nav Bar Start -->
-        <div class="nav-bar">
-            <div class="container-fluid">
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="index.html" class="navbar-brand">Crazy Buildz</a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Login Page Start -->
+    <div class="login-page">
+        <div class="login-container wow fadeInUp">
+            <div class="brand-logo">
+                <h1>Your Wish</h1>
+                <p>CONSTRUCTION COMPANY</p>
+            </div>
+            <div class="login-form">
+                <h2>Login</h2>
+                <p>Welcome back! Please enter your details.</p>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            </div>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group d-flex justify-content-between align-items:center;">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="rememberMe">
+                            <label class="custom-control-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <a href="#" style="font-size: 0.9rem; color: #C9A227;">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-login">Login</button>
+                </form>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <div class="social-login">
+                    <button class="btn social-btn">
+                        <i class="fab fa-google"></i> Google
                     </button>
-
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About</a>
-                            <a href="service.html" class="nav-item nav-link">Service</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
-                        <div class="ml-auto">
-                            <a class="btn" href="register.html">Sign Up</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Nav Bar End -->
-
-        <!-- Login Page Start -->
-        <div class="login-page">
-            <div class="login-container wow fadeInUp">
-                <div class="login-image">
-                    <div class="login-image-content">
-                        <h2>Welcome Back!</h2>
-                        <p>Login to access your dashboard and manage your construction projects</p>
-                    </div>
+                    <button class="btn social-btn">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </button>
                 </div>
-                <div class="login-form">
-                    <h2>Login</h2>
-                    <p>Enter your credentials to access your account</p>
-                    
-                    <form id="loginForm">
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                </div>
-                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                </div>
-                                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="rememberMe">
-                                <label class="custom-control-label" for="rememberMe">Remember me</label>
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-login">Login</button>
-                    </form>
-                    
-                    <div class="divider">
-                        <span>OR</span>
-                    </div>
-                    
-                    <div class="social-login">
-                        <button class="btn social-btn">
-                            <i class="fab fa-google"></i> Google
-                        </button>
-                        <button class="btn social-btn">
-                            <i class="fab fa-facebook-f"></i> Facebook
-                        </button>
-                    </div>
-                    
-                    <div class="register-link">
-                        Don't have an account? <a href="register.html">Sign up here</a>
-                    </div>
-                    
-                    <div class="register-link">
-                        <a href="#" style="font-size: 0.9rem;">Forgot your password?</a>
-                    </div>
+
+                <div class="register-link">
+                    Don't have an account? <a href="register.html">Sign up</a>
                 </div>
             </div>
         </div>
-        <!-- Login Page End -->
+    </div>
+    <!-- Login Page End -->
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        
-        <script>
-            // Initialize WOW.js
-            new WOW().init();
-            
-            // Handle login form submission
-            document.getElementById('loginForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const email = document.getElementById('email').value;
-                const password = document.getElementById('password').value;
-                
-                // Simple validation (in production, this would be server-side)
-                if (email && password) {
-                    // Show success message
-                    alert('Login successful! Redirecting to dashboard...');
-                    // Redirect to dashboard
-                    window.location.href = 'dashboard.html';
-                } else {
-                    alert('Please fill in all fields');
-                }
-            });
-        </script>
-    </body>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+
+    <script>
+        // Initialize WOW.js
+        new WOW().init();
+
+        // Handle login form submission
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simple validation (in production, this would be server-side)
+            if (email && password) {
+                // Show success message
+                alert('Login successful! Redirecting to dashboard...');
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+    </script>
+</body>
+
 </html>

@@ -1,430 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Dashboard - Your Wish Client Portal</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Your Wish Client Dashboard" name="keywords">
-        <meta content="Construction Company Client Portal Dashboard" name="description">
 
-        <!-- Favicon -->
-        <link href="img/favicon.ico" rel="icon">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard - Your Wish Client Portal</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Your Wish Client Dashboard" name="keywords">
+    <meta content="Construction Company Client Portal Dashboard" name="description">
 
-        <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="img/favicon.svg" rel="icon">
 
-        <!-- CSS Libraries -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-        <link href="lib/flaticon/font/flaticon.css" rel="stylesheet"> 
-        <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-        
-        <style>
-            .dashboard-container {
-                background: #f8f9fa;
-                min-height: 100vh;
-            }
-            
-            .dashboard-header {
-                background: #030f27;
-                color: white;
-                padding: 15px 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            }
-            
-            .dashboard-logo {
-                font-size: 24px;
-                font-weight: 700;
-                color: #fdbe33;
-                text-decoration: none;
-            }
-            
-            .dashboard-logo:hover {
-                color: #fff;
-            }
-            
-            .user-menu {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-            }
-            
-            .user-avatar {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                background: #fdbe33;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #030f27;
-                font-weight: 600;
-            }
-            
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .dashboard-container {
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+        .dashboard-header {
+            background: #030f27;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fdbe33;
+            text-decoration: none;
+        }
+
+        .dashboard-logo:hover {
+            color: #fff;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fdbe33;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #030f27;
+            font-weight: 600;
+        }
+
+        .sidebar {
+            background: white;
+            min-height: calc(100vh - 70px);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+        }
+
+        .mobile-sidebar {
+            background: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: #fdbe33;
+            color: #030f27;
+        }
+
+        .sidebar-menu i {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .mobile-menu-toggle {
+            border: none;
+            padding: 8px 12px;
+            background: transparent;
+            color: white;
+        }
+
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .stats-icon.blue {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stats-icon.green {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .stats-icon.orange {
+            background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
+        }
+
+        .stats-icon.red {
+            background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        }
+
+        .stats-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #030f27;
+            margin-bottom: 5px;
+        }
+
+        .stats-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #030f27;
+            margin-bottom: 5px;
+        }
+
+        .project-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-completed {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .progress-bar-custom {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #fdbe33, #030f27);
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+
+        .quote-card {
+            background: white;
+            border-left: 4px solid #fdbe33;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: #030f27;
+            margin-bottom: 10px;
+        }
+
+        .quote-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .btn-quote {
+            background: #fdbe33;
+            color: #030f27;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-quote:hover {
+            background: #030f27;
+            color: #fdbe33;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 30px;
+            height: calc(100% + 10px);
+            width: 2px;
+            background: #e9ecef;
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fdbe33;
+            border: 3px solid white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: #030f27;
+            margin-bottom: 5px;
+        }
+
+        .timeline-description {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 991.98px) {
             .sidebar {
-                background: white;
-                min-height: calc(100vh - 70px);
-                box-shadow: 2px 0 10px rgba(0,0,0,0.05);
-                padding: 20px 0;
-            }
-            
-            .mobile-sidebar {
-                background: white;
-                box-shadow: 2px 0 10px rgba(0,0,0,0.05);
-                padding: 20px 0;
                 position: fixed;
+                left: -250px;
                 top: 70px;
-                left: 0;
-                right: 0;
+                width: 250px;
+                height: calc(100vh - 70px);
                 z-index: 1000;
-                max-height: calc(100vh - 70px);
-                overflow-y: auto;
+                transition: left 0.3s;
             }
-            
-            .sidebar-menu {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-            
-            .sidebar-menu li {
-                margin-bottom: 5px;
-            }
-            
-            .sidebar-menu a {
-                display: flex;
-                align-items: center;
-                padding: 12px 20px;
-                color: #666;
-                text-decoration: none;
-                transition: all 0.3s;
-            }
-            
-            .sidebar-menu a:hover,
-            .sidebar-menu a.active {
-                background: #fdbe33;
-                color: #030f27;
-            }
-            
-            .sidebar-menu i {
-                width: 20px;
-                margin-right: 10px;
-            }
-            
-            .main-content {
-                padding: 30px;
-            }
-            
-            .mobile-menu-toggle {
-                border: none;
-                padding: 8px 12px;
-                background: transparent;
-                color: white;
-            }
-            
-            .mobile-menu-toggle:hover {
-                background: rgba(255,255,255,0.1);
-            }
-            
-            .stats-card {
-                background: white;
-                border-radius: 10px;
-                padding: 25px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-                margin-bottom: 30px;
-                transition: transform 0.3s;
-            }
-            
-            .stats-card:hover {
-                transform: translateY(-5px);
-            }
-            
-            .stats-icon {
-                width: 60px;
-                height: 60px;
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 24px;
-                color: white;
-                margin-bottom: 15px;
-            }
-            
-            .stats-icon.blue {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            }
-            
-            .stats-icon.green {
-                background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            }
-            
-            .stats-icon.orange {
-                background: linear-gradient(135deg, #fc4a1a 0%, #f7b733 100%);
-            }
-            
-            .stats-icon.red {
-                background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
-            }
-            
-            .stats-number {
-                font-size: 32px;
-                font-weight: 700;
-                color: #030f27;
-                margin-bottom: 5px;
-            }
-            
-            .stats-label {
-                color: #666;
-                font-size: 14px;
-            }
-            
-            .project-card {
-                background: white;
-                border-radius: 10px;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-                margin-bottom: 20px;
-                transition: transform 0.3s;
-            }
-            
-            .project-card:hover {
-                transform: translateY(-3px);
-            }
-            
-            .project-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: start;
-                margin-bottom: 15px;
-            }
-            
-            .project-title {
-                font-size: 18px;
-                font-weight: 600;
-                color: #030f27;
-                margin-bottom: 5px;
-            }
-            
-            .project-status {
-                padding: 5px 12px;
-                border-radius: 20px;
-                font-size: 12px;
-                font-weight: 500;
-            }
-            
-            .status-active {
-                background: #d4edda;
-                color: #155724;
-            }
-            
-            .status-pending {
-                background: #fff3cd;
-                color: #856404;
-            }
-            
-            .status-completed {
-                background: #d1ecf1;
-                color: #0c5460;
-            }
-            
-            .progress-bar-custom {
-                height: 8px;
-                background: #e9ecef;
-                border-radius: 10px;
-                overflow: hidden;
-                margin: 10px 0;
-            }
-            
-            .progress-fill {
-                height: 100%;
-                background: linear-gradient(90deg, #fdbe33, #030f27);
-                border-radius: 10px;
-                transition: width 0.3s;
-            }
-            
-            .quote-card {
-                background: white;
-                border-left: 4px solid #fdbe33;
-                border-radius: 8px;
-                padding: 20px;
-                margin-bottom: 20px;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            }
-            
-            .quote-amount {
-                font-size: 24px;
-                font-weight: 700;
-                color: #030f27;
-                margin-bottom: 10px;
-            }
-            
-            .quote-details {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 15px;
-            }
-            
-            .btn-quote {
-                background: #fdbe33;
-                color: #030f27;
-                border: none;
-                padding: 8px 20px;
-                border-radius: 5px;
-                font-weight: 500;
-                cursor: pointer;
-                transition: all 0.3s;
-            }
-            
-            .btn-quote:hover {
-                background: #030f27;
-                color: #fdbe33;
-            }
-            
-            .timeline-item {
-                position: relative;
-                padding-left: 40px;
-                margin-bottom: 25px;
-            }
-            
-            .timeline-item::before {
-                content: '';
-                position: absolute;
-                left: 9px;
-                top: 30px;
-                height: calc(100% + 10px);
-                width: 2px;
-                background: #e9ecef;
-            }
-            
-            .timeline-item:last-child::before {
-                display: none;
-            }
-            
-            .timeline-dot {
-                position: absolute;
-                left: 0;
-                top: 5px;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                background: #fdbe33;
-                border: 3px solid white;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
-            
-            .timeline-content {
-                background: white;
-                padding: 15px;
-                border-radius: 8px;
-                box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            }
-            
-            .timeline-date {
-                font-size: 12px;
-                color: #999;
-                margin-bottom: 5px;
-            }
-            
-            .timeline-title {
-                font-weight: 600;
-                color: #030f27;
-                margin-bottom: 5px;
-            }
-            
-            .timeline-description {
-                color: #666;
-                font-size: 14px;
-            }
-            
-            .notification-badge {
-                position: absolute;
-                top: -5px;
-                right: -5px;
-                background: #dc3545;
-                color: white;
-                border-radius: 50%;
-                width: 18px;
-                height: 18px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 10px;
-                font-weight: 600;
-            }
-            
-            @media (max-width: 768px) {
-                .sidebar {
-                    position: fixed;
-                    left: -250px;
-                    top: 70px;
-                    width: 250px;
-                    height: calc(100vh - 70px);
-                    z-index: 1000;
-                    transition: left 0.3s;
-                }
-                
-                .sidebar.show {
-                    left: 0;
-                }
-                
-                .main-content {
-                    margin-left: 0;
-                    padding: 20px;
-                }
-                
-                .stats-card {
-                    margin-bottom: 20px;
-                }
-            }
-        </style>
-    </head>
 
-    <body>
-        <div class="dashboard-container">
-            <!-- Dashboard Header -->
-            <div class="dashboard-header">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <button class="btn d-md-none mobile-menu-toggle" type="button" data-toggle="collapse" data-target="#mobileSidebar">
+            .sidebar.show {
+                left: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .stats-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-8 col-lg-auto">
+                        <a href="index.html" class="dashboard-logo d-none d-lg-inline-block">
+                            <i class="fas fa-hard-hat mr-2"></i>Your Wish Portal
+                        </a>
+                        <a href="index.html" class="dashboard-logo d-lg-none">
+                            <i class="fas fa-hard-hat mr-2"></i>Your Wish
+                        </a>
+                    </div>
+                    <div class="col-4 col-lg text-right">
+                        <div class="user-menu d-flex align-items-center justify-content-end">
+                            <div class="position-relative d-inline-block d-none d-lg-inline-block mr-2">
+                                <i class="fas fa-bell fa-lg"></i>
+                                <span class="notification-badge">3</span>
+                            </div>
+                            <div class="user-avatar d-none d-lg-flex">JD</div>
+                            <div class="d-none d-lg-block text-left mr-2">
+                                <div class="font-weight-600">John Doe</div>
+                                <small class="text-muted">Premium Client</small>
+                            </div>
+                            <a href="index.html" class="btn btn-sm btn-outline-light d-none d-lg-inline-block">
+                                <i class="fas fa-sign-out-alt mr-1"></i>Logout
+                            </a>
+                            <button class="btn d-lg-none mobile-menu-toggle ml-3" type="button" data-toggle="collapse"
+                                data-target="#mobileSidebar">
                                 <i class="fas fa-bars text-white"></i>
                             </button>
-                            <a href="index.html" class="dashboard-logo d-none d-md-inline-block">
-                                <i class="fas fa-hard-hat mr-2"></i>Crazy Buildz Portal
-                            </a>
-                            <a href="index.html" class="dashboard-logo d-md-none">
-                                <i class="fas fa-hard-hat mr-2"></i>Crazy Buildz
-                            </a>
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <div class="user-menu">
-                                <div class="position-relative d-inline-block">
-                                    <i class="fas fa-bell fa-lg"></i>
-                                    <span class="notification-badge">3</span>
-                                </div>
-                                <div class="user-avatar">JD</div>
-                                <div>
-                                    <div class="font-weight-600">John Doe</div>
-                                    <small class="text-muted">Premium Client</small>
-                                </div>
-                                <a href="index.html" class="btn btn-sm btn-outline-light">
-                                    <i class="fas fa-sign-out-alt mr-1"></i>Logout
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="container-fluid">
-                <!-- Mobile Sidebar -->
-                <div class="collapse d-md-none" id="mobileSidebar">
-                    <div class="mobile-sidebar">
+        <div class="container-fluid">
+            <!-- Mobile Sidebar -->
+            <div class="collapse d-lg-none" id="mobileSidebar">
+                <div class="mobile-sidebar">
+                    <div class="p-3 border-bottom mb-2 d-flex align-items-center">
+                        <div class="user-avatar mr-3">JD</div>
+                        <div>
+                            <div class="font-weight-600">John Doe</div>
+                            <small class="text-muted">Premium Client</small>
+                        </div>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li>
+                            <a href="#" class="active">
+                                <i class="fas fa-tachometer-alt"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#projects">
+                                <i class="fas fa-project-diagram"></i>
+                                My Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#quotes">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                Quotes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#updates">
+                                <i class="fas fa-bell"></i>
+                                Updates
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#messages">
+                                <i class="fas fa-envelope"></i>
+                                Messages
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#documents">
+                                <i class="fas fa-file-alt"></i>
+                                Documents
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#payments">
+                                <i class="fas fa-credit-card"></i>
+                                Payments
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#profile">
+                                <i class="fas fa-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#settings">
+                                <i class="fas fa-cog"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li class="border-top mt-2 pt-2">
+                            <a href="index.html" class="text-danger">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Desktop Sidebar -->
+                <div class="col-lg-3 col-xl-2 p-0 d-none d-lg-block">
+                    <div class="sidebar">
                         <ul class="sidebar-menu">
                             <li>
                                 <a href="#" class="active">
@@ -480,370 +559,323 @@
                                     Settings
                                 </a>
                             </li>
+                            <li class="border-top mt-2 pt-2">
+                                <a href="index.html" class="text-danger">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="row">
-                    <!-- Desktop Sidebar -->
-                    <div class="col-md-3 col-lg-2 p-0 d-none d-md-block">
-                        <div class="sidebar">
-                            <ul class="sidebar-menu">
-                                <li>
-                                    <a href="#" class="active">
-                                        <i class="fas fa-tachometer-alt"></i>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#projects">
-                                        <i class="fas fa-project-diagram"></i>
-                                        My Projects
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#quotes">
-                                        <i class="fas fa-file-invoice-dollar"></i>
-                                        Quotes
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#updates">
-                                        <i class="fas fa-bell"></i>
-                                        Updates
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#messages">
-                                        <i class="fas fa-envelope"></i>
-                                        Messages
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#documents">
-                                        <i class="fas fa-file-alt"></i>
-                                        Documents
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#payments">
-                                        <i class="fas fa-credit-card"></i>
-                                        Payments
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#profile">
-                                        <i class="fas fa-user"></i>
-                                        Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#settings">
-                                        <i class="fas fa-cog"></i>
-                                        Settings
-                                    </a>
-                                </li>
-                            </ul>
+                <!-- Main Content -->
+                <div class="col-lg-9 col-xl-10">
+                    <div class="main-content">
+                        <!-- Welcome Section -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h2 class="mb-3">Welcome back, John! 👋</h2>
+                                <p class="text-muted">Here's what's happening with your construction projects today.</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Main Content -->
-                    <div class="col-md-9 col-lg-10">
-                        <div class="main-content">
-                            <!-- Welcome Section -->
-                            <div class="row mb-4">
-                                <div class="col-12">
-                                    <h2 class="mb-3">Welcome back, John! 👋</h2>
-                                    <p class="text-muted">Here's what's happening with your construction projects today.</p>
+                        <!-- Stats Cards -->
+                        <div class="row mb-4">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="stats-card">
+                                    <div class="stats-icon blue">
+                                        <i class="fas fa-project-diagram"></i>
+                                    </div>
+                                    <div class="stats-number">5</div>
+                                    <div class="stats-label">Active Projects</div>
                                 </div>
                             </div>
-
-                            <!-- Stats Cards -->
-                            <div class="row mb-4">
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="stats-card">
-                                        <div class="stats-icon blue">
-                                            <i class="fas fa-project-diagram"></i>
-                                        </div>
-                                        <div class="stats-number">5</div>
-                                        <div class="stats-label">Active Projects</div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="stats-card">
+                                    <div class="stats-icon green">
+                                        <i class="fas fa-check-circle"></i>
                                     </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="stats-card">
-                                        <div class="stats-icon green">
-                                            <i class="fas fa-check-circle"></i>
-                                        </div>
-                                        <div class="stats-number">12</div>
-                                        <div class="stats-label">Completed Projects</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="stats-card">
-                                        <div class="stats-icon orange">
-                                            <i class="fas fa-file-invoice-dollar"></i>
-                                        </div>
-                                        <div class="stats-number">3</div>
-                                        <div class="stats-label">Pending Quotes</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="stats-card">
-                                        <div class="stats-icon red">
-                                            <i class="fas fa-bell"></i>
-                                        </div>
-                                        <div class="stats-number">8</div>
-                                        <div class="stats-label">New Updates</div>
-                                    </div>
+                                    <div class="stats-number">12</div>
+                                    <div class="stats-label">Completed Projects</div>
                                 </div>
                             </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="stats-card">
+                                    <div class="stats-icon orange">
+                                        <i class="fas fa-file-invoice-dollar"></i>
+                                    </div>
+                                    <div class="stats-number">3</div>
+                                    <div class="stats-label">Pending Quotes</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="stats-card">
+                                    <div class="stats-icon red">
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                    <div class="stats-number">8</div>
+                                    <div class="stats-label">New Updates</div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <!-- Projects Section -->
-                            <div class="row mb-4" id="projects">
-                                <div class="col-12">
-                                    <h3 class="mb-3">My Projects</h3>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="project-card">
-                                        <div class="project-header">
-                                            <div>
-                                                <div class="project-title">Modern Home Renovation</div>
-                                                <small class="text-muted">Project #PRJ-2024-001</small>
-                                            </div>
-                                            <span class="project-status status-active">Active</span>
+                        <!-- Projects Section -->
+                        <div class="row mb-4" id="projects">
+                            <div class="col-12">
+                                <h3 class="mb-3">My Projects</h3>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <div>
+                                            <div class="project-title">Modern Home Renovation</div>
+                                            <small class="text-muted">Project #PRJ-2024-001</small>
                                         </div>
-                                        <p class="text-muted mb-2">Complete home renovation including kitchen, bathroom, and living areas.</p>
-                                        <div class="progress-bar-custom">
-                                            <div class="progress-fill" style="width: 75%"></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted">75% Complete</small>
-                                            <small class="text-muted">Due: Dec 15, 2024</small>
-                                        </div>
+                                        <span class="project-status status-active">Active</span>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="project-card">
-                                        <div class="project-header">
-                                            <div>
-                                                <div class="project-title">Office Building Construction</div>
-                                                <small class="text-muted">Project #PRJ-2024-002</small>
-                                            </div>
-                                            <span class="project-status status-active">Active</span>
-                                        </div>
-                                        <p class="text-muted mb-2">3-story commercial office building with modern amenities.</p>
-                                        <div class="progress-bar-custom">
-                                            <div class="progress-fill" style="width: 45%"></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted">45% Complete</small>
-                                            <small class="text-muted">Due: Feb 28, 2025</small>
-                                        </div>
+                                    <p class="text-muted mb-2">Complete home renovation including kitchen, bathroom, and
+                                        living areas.</p>
+                                    <div class="progress-bar-custom">
+                                        <div class="progress-fill" style="width: 75%"></div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="project-card">
-                                        <div class="project-header">
-                                            <div>
-                                                <div class="project-title">Garden Landscaping</div>
-                                                <small class="text-muted">Project #PRJ-2024-003</small>
-                                            </div>
-                                            <span class="project-status status-pending">Pending</span>
-                                        </div>
-                                        <p class="text-muted mb-2">Complete garden redesign with irrigation system.</p>
-                                        <div class="progress-bar-custom">
-                                            <div class="progress-fill" style="width: 10%"></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted">10% Complete</small>
-                                            <small class="text-muted">Due: Jan 10, 2025</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="project-card">
-                                        <div class="project-header">
-                                            <div>
-                                                <div class="project-title">Basement Waterproofing</div>
-                                                <small class="text-muted">Project #PRJ-2024-004</small>
-                                            </div>
-                                            <span class="project-status status-completed">Completed</span>
-                                        </div>
-                                        <p class="text-muted mb-2">Complete basement waterproofing and finishing.</p>
-                                        <div class="progress-bar-custom">
-                                            <div class="progress-fill" style="width: 100%"></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small class="text-muted">100% Complete</small>
-                                            <small class="text-muted">Completed: Nov 20, 2024</small>
-                                        </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">75% Complete</small>
+                                        <small class="text-muted">Due: Dec 15, 2024</small>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Quotes Section -->
-                            <div class="row mb-4" id="quotes">
-                                <div class="col-12">
-                                    <h3 class="mb-3">Recent Quotes</h3>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="quote-card">
-                                        <div class="d-flex justify-content-between align-items-start mb-3">
-                                            <div>
-                                                <h5>Kitchen Remodeling</h5>
-                                                <small class="text-muted">Quote #QT-2024-015</small>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="quote-amount">$25,500</div>
-                                                <small class="text-muted">Valid until: Dec 31, 2024</small>
-                                            </div>
+                            <div class="col-lg-6">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <div>
+                                            <div class="project-title">Office Building Construction</div>
+                                            <small class="text-muted">Project #PRJ-2024-002</small>
                                         </div>
-                                        <p class="text-muted mb-3">Complete kitchen renovation with custom cabinets and premium appliances.</p>
-                                        <div class="quote-details">
-                                            <small class="text-muted">Created: Nov 15, 2024</small>
-                                            <button class="btn-quote">View Details</button>
-                                        </div>
+                                        <span class="project-status status-active">Active</span>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="quote-card">
-                                        <div class="d-flex justify-content-between align-items-start mb-3">
-                                            <div>
-                                                <h5>Deck Construction</h5>
-                                                <small class="text-muted">Quote #QT-2024-016</small>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="quote-amount">$18,200</div>
-                                                <small class="text-muted">Valid until: Jan 15, 2025</small>
-                                            </div>
-                                        </div>
-                                        <p class="text-muted mb-3">Large wooden deck with railing and built-in seating area.</p>
-                                        <div class="quote-details">
-                                            <small class="text-muted">Created: Nov 18, 2024</small>
-                                            <button class="btn-quote">View Details</button>
-                                        </div>
+                                    <p class="text-muted mb-2">3-story commercial office building with modern amenities.
+                                    </p>
+                                    <div class="progress-bar-custom">
+                                        <div class="progress-fill" style="width: 45%"></div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="quote-card">
-                                        <div class="d-flex justify-content-between align-items-start mb-3">
-                                            <div>
-                                                <h5>Bathroom Renovation</h5>
-                                                <small class="text-muted">Quote #QT-2024-017</small>
-                                            </div>
-                                            <div class="text-right">
-                                                <div class="quote-amount">$12,800</div>
-                                                <small class="text-muted">Valid until: Dec 15, 2024</small>
-                                            </div>
-                                        </div>
-                                        <p class="text-muted mb-3">Master bathroom renovation with modern fixtures and tiles.</p>
-                                        <div class="quote-details">
-                                            <small class="text-muted">Created: Nov 20, 2024</small>
-                                            <button class="btn-quote">View Details</button>
-                                        </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">45% Complete</small>
+                                        <small class="text-muted">Due: Feb 28, 2025</small>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Updates Timeline -->
-                            <div class="row mb-4" id="updates">
-                                <div class="col-12">
-                                    <h3 class="mb-3">Recent Updates</h3>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-content">
-                                            <div class="timeline-date">Today, 2:30 PM</div>
-                                            <div class="timeline-title">Kitchen Cabinets Installed</div>
-                                            <div class="timeline-description">Custom kitchen cabinets have been successfully installed. Next step: countertop installation.</div>
+                            <div class="col-lg-6">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <div>
+                                            <div class="project-title">Garden Landscaping</div>
+                                            <small class="text-muted">Project #PRJ-2024-003</small>
                                         </div>
+                                        <span class="project-status status-pending">Pending</span>
                                     </div>
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-content">
-                                            <div class="timeline-date">Yesterday, 4:15 PM</div>
-                                            <div class="timeline-title">Foundation Inspection Passed</div>
-                                            <div class="timeline-description">Office building foundation inspection completed and approved by city inspector.</div>
-                                        </div>
+                                    <p class="text-muted mb-2">Complete garden redesign with irrigation system.</p>
+                                    <div class="progress-bar-custom">
+                                        <div class="progress-fill" style="width: 10%"></div>
                                     </div>
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-content">
-                                            <div class="timeline-date">Nov 18, 2024</div>
-                                            <div class="timeline-title">Materials Delivered</div>
-                                            <div class="timeline-description">All required materials for basement waterproofing have been delivered to site.</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-content">
-                                            <div class="timeline-date">Nov 17, 2024</div>
-                                            <div class="timeline-title">Design Approval Received</div>
-                                            <div class="timeline-description">Garden landscaping design has been approved by client. Work to begin next week.</div>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-content">
-                                            <div class="timeline-date">Nov 16, 2024</div>
-                                            <div class="timeline-title">Payment Processed</div>
-                                            <div class="timeline-description">Payment for milestone 2 of office building project has been processed.</div>
-                                        </div>
-                                    </div>
-                                    <div class="timeline-item">
-                                        <div class="timeline-dot"></div>
-                                        <div class="timeline-content">
-                                            <div class="timeline-date">Nov 15, 2024</div>
-                                            <div class="timeline-title">New Quote Generated</div>
-                                            <div class="timeline-description">New quote for kitchen remodeling has been generated and sent for review.</div>
-                                        </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">10% Complete</small>
+                                        <small class="text-muted">Due: Jan 10, 2025</small>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-6">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <div>
+                                            <div class="project-title">Basement Waterproofing</div>
+                                            <small class="text-muted">Project #PRJ-2024-004</small>
+                                        </div>
+                                        <span class="project-status status-completed">Completed</span>
+                                    </div>
+                                    <p class="text-muted mb-2">Complete basement waterproofing and finishing.</p>
+                                    <div class="progress-bar-custom">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">100% Complete</small>
+                                        <small class="text-muted">Completed: Nov 20, 2024</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <!-- Quick Actions -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <h3 class="mb-3">Quick Actions</h3>
-                                </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="stats-card text-center">
-                                        <div class="stats-icon blue mx-auto mb-3">
-                                            <i class="fas fa-plus"></i>
+                        <!-- Quotes Section -->
+                        <div class="row mb-4" id="quotes">
+                            <div class="col-12">
+                                <h3 class="mb-3">Recent Quotes</h3>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="quote-card">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div>
+                                            <h5>Kitchen Remodeling</h5>
+                                            <small class="text-muted">Quote #QT-2024-015</small>
                                         </div>
-                                        <h6>New Project</h6>
-                                        <p class="text-muted small">Start a new construction project</p>
+                                        <div class="text-right">
+                                            <div class="quote-amount">$25,500</div>
+                                            <small class="text-muted">Valid until: Dec 31, 2024</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">Complete kitchen renovation with custom cabinets and
+                                        premium appliances.</p>
+                                    <div class="quote-details">
+                                        <small class="text-muted">Created: Nov 15, 2024</small>
+                                        <button class="btn-quote">View Details</button>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="stats-card text-center">
-                                        <div class="stats-icon green mx-auto mb-3">
-                                            <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="quote-card">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div>
+                                            <h5>Deck Construction</h5>
+                                            <small class="text-muted">Quote #QT-2024-016</small>
                                         </div>
-                                        <h6>Request Quote</h6>
-                                        <p class="text-muted small">Get a quote for your project</p>
+                                        <div class="text-right">
+                                            <div class="quote-amount">$18,200</div>
+                                            <small class="text-muted">Valid until: Jan 15, 2025</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">Large wooden deck with railing and built-in seating area.
+                                    </p>
+                                    <div class="quote-details">
+                                        <small class="text-muted">Created: Nov 18, 2024</small>
+                                        <button class="btn-quote">View Details</button>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="stats-card text-center">
-                                        <div class="stats-icon orange mx-auto mb-3">
-                                            <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="quote-card">
+                                    <div class="d-flex justify-content-between align-items-start mb-3">
+                                        <div>
+                                            <h5>Bathroom Renovation</h5>
+                                            <small class="text-muted">Quote #QT-2024-017</small>
                                         </div>
-                                        <h6>Contact Team</h6>
-                                        <p class="text-muted small">Get in touch with our experts</p>
+                                        <div class="text-right">
+                                            <div class="quote-amount">$12,800</div>
+                                            <small class="text-muted">Valid until: Dec 15, 2024</small>
+                                        </div>
+                                    </div>
+                                    <p class="text-muted mb-3">Master bathroom renovation with modern fixtures and
+                                        tiles.</p>
+                                    <div class="quote-details">
+                                        <small class="text-muted">Created: Nov 20, 2024</small>
+                                        <button class="btn-quote">View Details</button>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="stats-card text-center">
-                                        <div class="stats-icon red mx-auto mb-3">
-                                            <i class="fas fa-download"></i>
-                                        </div>
-                                        <h6>Documents</h6>
-                                        <p class="text-muted small">Download project documents</p>
+                            </div>
+                        </div>
+
+                        <!-- Updates Timeline -->
+                        <div class="row mb-4" id="updates">
+                            <div class="col-12">
+                                <h3 class="mb-3">Recent Updates</h3>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Today, 2:30 PM</div>
+                                        <div class="timeline-title">Kitchen Cabinets Installed</div>
+                                        <div class="timeline-description">Custom kitchen cabinets have been successfully
+                                            installed. Next step: countertop installation.</div>
                                     </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Yesterday, 4:15 PM</div>
+                                        <div class="timeline-title">Foundation Inspection Passed</div>
+                                        <div class="timeline-description">Office building foundation inspection
+                                            completed and approved by city inspector.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Nov 18, 2024</div>
+                                        <div class="timeline-title">Materials Delivered</div>
+                                        <div class="timeline-description">All required materials for basement
+                                            waterproofing have been delivered to site.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Nov 17, 2024</div>
+                                        <div class="timeline-title">Design Approval Received</div>
+                                        <div class="timeline-description">Garden landscaping design has been approved by
+                                            client. Work to begin next week.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Nov 16, 2024</div>
+                                        <div class="timeline-title">Payment Processed</div>
+                                        <div class="timeline-description">Payment for milestone 2 of office building
+                                            project has been processed.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Nov 15, 2024</div>
+                                        <div class="timeline-title">New Quote Generated</div>
+                                        <div class="timeline-description">New quote for kitchen remodeling has been
+                                            generated and sent for review.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="mb-3">Quick Actions</h3>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="stats-card text-center">
+                                    <div class="stats-icon blue mx-auto mb-3">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                    <h6>New Project</h6>
+                                    <p class="text-muted small">Start a new construction project</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="stats-card text-center">
+                                    <div class="stats-icon green mx-auto mb-3">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                    <h6>Request Quote</h6>
+                                    <p class="text-muted small">Get a quote for your project</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="stats-card text-center">
+                                    <div class="stats-icon orange mx-auto mb-3">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <h6>Contact Team</h6>
+                                    <p class="text-muted small">Get in touch with our experts</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="stats-card text-center">
+                                    <div class="stats-icon red mx-auto mb-3">
+                                        <i class="fas fa-download"></i>
+                                    </div>
+                                    <h6>Documents</h6>
+                                    <p class="text-muted small">Download project documents</p>
                                 </div>
                             </div>
                         </div>
@@ -851,108 +883,110 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/wow/wow.min.js"></script>
-        
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-        
-        <script>
-            // Initialize WOW.js
-            new WOW().init();
-            
-            // Sidebar toggle for mobile
-            function toggleSidebar() {
-                document.querySelector('.sidebar').classList.toggle('show');
-            }
-            
-            // Simulate real-time updates
-            function updateStats() {
-                // Animate numbers
-                const statsNumbers = document.querySelectorAll('.stats-number');
-                statsNumbers.forEach(stat => {
-                    const finalNumber = parseInt(stat.textContent);
-                    let currentNumber = 0;
-                    const increment = finalNumber / 50;
-                    const timer = setInterval(() => {
-                        currentNumber += increment;
-                        if (currentNumber >= finalNumber) {
-                            currentNumber = finalNumber;
-                            clearInterval(timer);
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+        // Initialize WOW.js
+        new WOW().init();
+
+        // Sidebar toggle for mobile
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('show');
+        }
+
+        // Simulate real-time updates
+        function updateStats() {
+            // Animate numbers
+            const statsNumbers = document.querySelectorAll('.stats-number');
+            statsNumbers.forEach(stat => {
+                const finalNumber = parseInt(stat.textContent);
+                let currentNumber = 0;
+                const increment = finalNumber / 50;
+                const timer = setInterval(() => {
+                    currentNumber += increment;
+                    if (currentNumber >= finalNumber) {
+                        currentNumber = finalNumber;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(currentNumber);
+                }, 30);
+            });
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function () {
+            updateStats();
+
+            // Add click handlers for sidebar menu
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Remove active class from all links
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+
+                    // Add active class to clicked link
+                    this.classList.add('active');
+
+                    // Smooth scroll to section if it exists
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
                         }
-                        stat.textContent = Math.floor(currentNumber);
-                    }, 30);
-                });
-            }
-            
-            // Initialize dashboard
-            document.addEventListener('DOMContentLoaded', function() {
-                updateStats();
-                
-                // Add click handlers for sidebar menu
-                const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
-                sidebarLinks.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Remove active class from all links
-                        sidebarLinks.forEach(l => l.classList.remove('active'));
-                        
-                        // Add active class to clicked link
-                        this.classList.add('active');
-                        
-                        // Smooth scroll to section if it exists
-                        const targetId = this.getAttribute('href');
-                        if (targetId && targetId !== '#') {
-                            const targetElement = document.querySelector(targetId);
-                            if (targetElement) {
-                                targetElement.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }
-                    });
-                });
-                
-                // Add click handlers for quote buttons
-                const quoteButtons = document.querySelectorAll('.btn-quote');
-                quoteButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        alert('Quote details would open in a modal or new page');
-                    });
-                });
-                
-                // Add click handlers for quick action cards
-                const quickActionCards = document.querySelectorAll('.stats-card');
-                quickActionCards.forEach(card => {
-                    if (card.querySelector('.stats-icon')) {
-                        card.style.cursor = 'pointer';
-                        card.addEventListener('click', function() {
-                            const title = this.querySelector('h6').textContent;
-                            alert(`${title} feature would open here`);
-                        });
                     }
                 });
             });
-            
-            // Simulate real-time notifications
-            setInterval(() => {
-                const notificationBadge = document.querySelector('.notification-badge');
-                if (notificationBadge) {
-                    const currentCount = parseInt(notificationBadge.textContent);
-                    const newCount = Math.floor(Math.random() * 10);
-                    notificationBadge.textContent = newCount;
-                    
-                    if (newCount > currentCount) {
-                        notificationBadge.style.animation = 'pulse 1s';
-                        setTimeout(() => {
-                            notificationBadge.style.animation = '';
-                        }, 1000);
-                    }
+
+            // Add click handlers for quote buttons
+            const quoteButtons = document.querySelectorAll('.btn-quote');
+            quoteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    alert('Quote details would open in a modal or new page');
+                });
+            });
+
+            // Add click handlers for quick action cards
+            const quickActionCards = document.querySelectorAll('.stats-card');
+            quickActionCards.forEach(card => {
+                if (card.querySelector('.stats-icon')) {
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', function () {
+                        const title = this.querySelector('h6').textContent;
+                        alert(`${title} feature would open here`);
+                    });
                 }
-            }, 30000); // Update every 30 seconds
-        </script>
-    </body>
+            });
+        });
+
+        // Simulate real-time notifications
+        setInterval(() => {
+            const notificationBadge = document.querySelector('.notification-badge');
+            if (notificationBadge) {
+                const currentCount = parseInt(notificationBadge.textContent);
+                const newCount = Math.floor(Math.random() * 10);
+                notificationBadge.textContent = newCount;
+
+                if (newCount > currentCount) {
+                    notificationBadge.style.animation = 'pulse 1s';
+                    setTimeout(() => {
+                        notificationBadge.style.animation = '';
+                    }, 1000);
+                }
+            }
+        }, 30000); // Update every 30 seconds
+    </script>
+</body>
+
 </html>
