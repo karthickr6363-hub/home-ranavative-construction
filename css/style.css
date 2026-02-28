@@ -262,6 +262,16 @@ a:focus {
         padding: 15px;
     }
 
+    .nav-bar .navbar-collapse {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+        left: 0;
+        padding: 0 15px 15px 15px;
+        background: #2F3E46;
+        z-index: 1000;
+    }
+
     .nav-bar .navbar-brand,
     .brand-style {
         font-size: 22px;
@@ -744,7 +754,8 @@ a:focus {
     padding: 45px 0;
 }
 
-.fact .col-6 {
+.fact .col-6,
+.fact .col-12 {
     display: flex;
     align-items: flex-start;
 }
@@ -788,6 +799,23 @@ a:focus {
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+@media (max-width: 575.98px) {
+
+    .fact .fact-left,
+    .fact .fact-right {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .fact [class*="col-"] {
+        margin-bottom: 30px;
+    }
+
+    .fact [class*="col-"]:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .fact .fact-left {
