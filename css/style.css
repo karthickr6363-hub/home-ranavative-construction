@@ -18,14 +18,28 @@ h6 {
 }
 
 .brand-style {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.brand-style img {
+    max-height: 35px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.brand-style span {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
+    font-size: 20px;
     text-transform: uppercase;
     color: #fdbe33 !important;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
 }
 
 .brand-style:hover {
@@ -245,9 +259,12 @@ a:focus {
         padding: 20px;
     }
 
-    .nav-bar .navbar-brand,
-    .brand-style {
-        font-size: 28px;
+    .brand-style img {
+        max-height: 40px;
+    }
+
+    .brand-style span {
+        font-size: 24px;
     }
 
     .nav-bar a.nav-link {
@@ -272,9 +289,12 @@ a:focus {
         z-index: 1000;
     }
 
-    .nav-bar .navbar-brand,
-    .brand-style {
-        font-size: 22px;
+    .brand-style img {
+        max-height: 30px;
+    }
+
+    .brand-style span {
+        font-size: 18px;
     }
 
     .nav-bar .navbar-brand:hover,
